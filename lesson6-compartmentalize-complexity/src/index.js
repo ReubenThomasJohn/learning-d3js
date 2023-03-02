@@ -6,7 +6,7 @@ import { range } from 'd3';
 const width = 166;
 const height = 166;
 
-const array = range(5*4);
+const array = range(20*7);
 
 const App = () => array.map(() => (
     <Face 
