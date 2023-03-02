@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading and parsing CSV data</title>
+    <script src="https://unpkg.com/d3@7.8.2/dist/d3.min.js"></script>
+    <style>
+        pre {
+            font-size: 7em;
+        }
+    </style>
+</head>
+<body>
+    <pre id = "message-container"></pre>
+    <script> // fetch is built into the browser, and returns a promise. A promise is a construct built for asynchronous communication
+        
+        const fetchText = async (url) => {
+            const response = await fetch(url);
+            return await response.text();
+        };
+
+        const csvUrl = "https://gist.githubusercontent.com/ReubenThomasJohn/bea8f3a40879b2105c108ca3ca3327a8/raw/27483c6f57e2844e7f183436a148b61ce2be15bc/cssNamedColors.csv";
+        fetchText(csvUrl).then(text => {
+            const data = d3.csvParse(text);
+            let message = '';
+            message = message + Math.round(text.length / 1024) + ' kB\n';
+            message = message + data.length + ' rows\n';
+            message = message + data.columns.length + ' columns\n';   
+            document.getElementById('message-container').textContent = message;         
+        });
+        
+        // fetch(url).then(response => {
+        //     response.text().then(text => {
+        //         console.log(text);
+        //     });  
+        // })
+    </script>
+    
+</body>
+</html>

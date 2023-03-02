@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 
 const width = 960;
-const height = 500;
+const height = 800;
 const circleRadius = 30;
  
 const initialMousePosition = { x: width/2, y: height/2};
