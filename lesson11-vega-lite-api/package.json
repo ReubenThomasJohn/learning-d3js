@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "build": "rollup -c",
+    "serve": "./node_modules/.bin/reload -b -d ./ -p 8000 | ./node_modules/.bin/rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-buble": "^1.0.2",
+    "reload": "^3.2.1",
+    "rollup": "latest",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
